@@ -1,10 +1,15 @@
-//Import modules(express, path, ejs )
+//Import modules(express, mongoose, path, ejs )
 const express = require('express')
+const mongoose = require('mongoose');
 const path = require('path')
 const ejs = require('ejs')
 
 // Express app
 const app = new express()
+
+//Set up default mongoose connection
+var mongoDB = 'mongodb://127.0.0.1/clean_blog';
+mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Static assets folder
 app.use(express.static('public'))
